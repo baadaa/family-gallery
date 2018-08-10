@@ -1,0 +1,127 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  min-height: 100vh;
+  height: 100vh;
+  font-family: Raleway, sans-serif;
+}
+
+header {
+  font-family: 'Playfair Display', cursive;
+  font-size: 2rem;
+  font-weight: 900;
+  font-style: italic;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  color: #FFF;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 3.5rem;
+  background: #B7295A;
+  -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+header span {
+  font-weight: 400;
+  display: inline-block;
+  margin: 0 .5rem;
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+}
+
+main .selection {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+  pointer-events: none;
+  background-size: cover;
+  background-position: center;
+}
+
+main .selection h1 {
+  pointer-events: all;
+  font-size: 4rem;
+  color: #FFF;
+}
+
+main .photos {
+  background-image: url("../assets/b-and-y.jpg");
+}
+
+main .videos {
+  z-index: -9;
+}
+
+main .videos video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  main .selection {
+    height: auto;
+  }
+}
+
+footer {
+  color: white;
+  font-family: Raleway;
+  font-size: 0.7rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 1.5rem;
+  background: #333;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 99;
+}
+/*# sourceMappingURL=styles.css.map */
