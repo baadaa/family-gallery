@@ -52,24 +52,26 @@ main {
     justify-content: center;
     align-items: center;
     filter: grayscale(100%);
-    pointer-events: none;
     background: {
       size: cover;
       position: center;
     }
     h1 {
-      pointer-events: all;
+      pointer-events: none;
       font-size: 4rem;
       color:#FFF;
+      text-shadow: 0 0 20px rgba(0,0,0,.4);
     }
-
+    a {
+      text-decoration: none;
+    }
 
   }
   .photos {
     background-image: url('../assets/b-and-y.jpg');
   }
   .videos {
-    z-index: -9;
+    z-index: 0;
     video {
       position: fixed;
       top: 50%;
@@ -80,8 +82,11 @@ main {
       height: auto;
       z-index: -100;
       transform: translateX(-50%) translateY(-50%);
-
     }
+    h1 {
+      z-index: 10;
+    }
+
   }
   @media screen and (max-width: 768px) {
     flex-direction: column;

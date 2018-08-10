@@ -63,15 +63,19 @@ main .selection {
           align-items: center;
   -webkit-filter: grayscale(100%);
           filter: grayscale(100%);
-  pointer-events: none;
   background-size: cover;
   background-position: center;
 }
 
 main .selection h1 {
-  pointer-events: all;
+  pointer-events: none;
   font-size: 4rem;
   color: #FFF;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+main .selection a {
+  text-decoration: none;
 }
 
 main .photos {
@@ -79,7 +83,7 @@ main .photos {
 }
 
 main .videos {
-  z-index: -9;
+  z-index: 0;
 }
 
 main .videos video {
@@ -93,6 +97,10 @@ main .videos video {
   z-index: -100;
   -webkit-transform: translateX(-50%) translateY(-50%);
           transform: translateX(-50%) translateY(-50%);
+}
+
+main .videos h1 {
+  z-index: 10;
 }
 
 @media screen and (max-width: 768px) {
