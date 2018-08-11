@@ -7,6 +7,14 @@ body {
   font-family: Raleway, sans-serif;
 }
 
+.preloader {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 100vh;
+  z-index: 9999;
+}
+
 header {
   font-family: 'Playfair Display', cursive;
   font-size: 2rem;
@@ -79,14 +87,16 @@ main .selection a {
 }
 
 main .photos {
+  z-index: 9;
   background-image: url("../assets/b-and-y.jpg");
 }
 
 main .videos {
+  position: relative;
   z-index: 0;
 }
 
-main .videos video {
+main .videos video#video-bg {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -130,6 +140,6 @@ footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  z-index: 99;
+  z-index: 9999;
 }
 /*# sourceMappingURL=styles.css.map */
