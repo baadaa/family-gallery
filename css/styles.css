@@ -13,7 +13,7 @@ body {
   background: rgba(0, 0, 0, 0.8);
   width: 100%;
   height: 100vh;
-  z-index: 9999;
+  z-index: 10;
 }
 
 header {
@@ -40,7 +40,7 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 99;
+  z-index: 9;
 }
 
 header span {
@@ -88,7 +88,7 @@ main .selection a {
 }
 
 main .photos {
-  z-index: 9;
+  z-index: 3;
   background-image: url("../assets/b-and-y.jpg");
 }
 
@@ -147,6 +147,69 @@ footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  z-index: 9999;
+  z-index: 12;
+}
+
+.photoViewer {
+  -webkit-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 15;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #FFF;
+  display: none;
+}
+
+.photoViewer .close-photo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3rem;
+  height: 3rem;
+  z-index: 10;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #FFF;
+  font-size: 2rem;
+  line-height: 2rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.photoViewer .main-carousel {
+  width: 100%;
+  height: 100%;
+}
+
+.photoViewer .carousel-cell {
+  text-align: center;
+  width: 100%;
+  /* full width */
+  height: 100%;
+  /* height of carousel */
+}
+
+.photoViewer .flickity-button {
+  opacity: .3;
 }
 /*# sourceMappingURL=styles.css.map */
