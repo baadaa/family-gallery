@@ -5,6 +5,7 @@ body {
   min-height: 100vh;
   height: 100vh;
   font-family: Raleway, sans-serif;
+  overflow: hidden;
 }
 
 .preloader {
@@ -97,7 +98,7 @@ main .videos {
 }
 
 main .videos video#video-bg {
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
   min-width: 100%;
@@ -127,6 +128,10 @@ main .videos h1 {
 
 footer {
   color: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
   font-family: Raleway;
   font-size: 0.7rem;
   display: -webkit-box;
@@ -134,6 +139,8 @@ footer {
   display: flex;
   height: 1.5rem;
   background: #333;
+  -webkit-box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
