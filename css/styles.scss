@@ -57,8 +57,10 @@ header {
 }
 main {
   display: flex;
+  overflow: hidden;
   height: 100%;
   .selection {
+    overflow: hidden;
     cursor: pointer;
     flex: 1 0 auto;
     height: 100%;

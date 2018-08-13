@@ -1,3 +1,14 @@
+// TODO:
+// 
+// 1. Break out into modules
+// 2. Build out video player
+// 3. Update .gitignore to include server-side codes
+// 4. Detect event emitted by Flickity to better handle pause/play
+//
+
+
+
+
 function shuffle(arra1) {
   var ctr = arra1.length, temp, index;
 
@@ -109,7 +120,6 @@ const hidePhotoviewer = () => {
 const unpause = () => {
   console.log(flkty);
   flkty.playPlayer();
-  flkty.unpausePlayer();
   console.log('clicked');
 }
 // 4. Init
