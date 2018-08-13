@@ -46,7 +46,7 @@ const fetchList = function (resourceType) {
   const result = fetch(`data/${resourceType}.json`)
     .then(res => res.json())
     .then(resString => {
-      document.querySelector('.preloader').style.display = "none";
+      // document.querySelector('.preloader').style.display = "none";
       if (resourceType === "images") {
         photoList = Array.from(resString);
         createFlickityString(shuffle(photoList));
