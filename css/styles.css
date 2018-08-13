@@ -152,7 +152,6 @@ main .selection a {
 
 main .photos {
   z-index: 3;
-  background-image: url("../assets/b-and-y.jpg");
 }
 
 main .videos {

@@ -6,7 +6,7 @@
 // 4. Detect event emitted by Flickity to better handle pause/play
 //
 
-
+import '../../css/styles.scss';
 
 
 function shuffle(arra1) {
@@ -91,7 +91,7 @@ const launchPhotos = () => {
   photoViewer.style.display = "flex";
   setTimeout(() => {
     photoViewer.style.opacity = 1;
-  }, 00);
+  }, 0);
   setTimeout(() => {
     toggleFullscreen("on");
   }, 500);
