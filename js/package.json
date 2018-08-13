@@ -1,0 +1,14 @@
+{
+  "name": "b-family-album",
+  "version": "1.0.0",
+  "description": "Simple web app that loads and displays photos and videos from cloud",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "B",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.16.5"
+  }
+}
