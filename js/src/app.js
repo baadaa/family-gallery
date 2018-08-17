@@ -45,7 +45,7 @@ const flkMethods = {
   createFlickityString(fileArray) {
     let innerDiv = "";
     for (let filename of fileArray) {
-      innerDiv += `<div class="carousel-cell" data-flickity-bg-lazyload='${filename}'></div>`;
+      innerDiv += `<div class="carousel-cell" data-flickity-bg-lazyload='${filename}' style="background-size: cover;"></div>`;
     };
     document.querySelector('.main-carousel').innerHTML = innerDiv;
   },

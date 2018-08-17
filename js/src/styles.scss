@@ -224,7 +224,7 @@ footer {
     width: 100%; /* full width */
     height: 100%; /* height of carousel */
     background: {
-      size: contain; 
+      size: cover!important; 
       position: center!important; 
       repeat: no-repeat!important;
     }
