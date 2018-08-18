@@ -1,6 +1,5 @@
 // TODO:
 // 
-// 1. Break out into modules
 // 2. Build out video player
 // 3. Update .gitignore to include server-side codes
 // 4. Detect event emitted by Flickity to better handle pause/play
@@ -11,23 +10,13 @@ import './modules/flickity.min.css';
 import { shuffle } from './modules/shuffle';
 import { toggleFullscreen } from './modules/toggleFullscreen';
 import Flickity from 'flickity-bg-lazyload';
+import { flkOptions } from './modules/flkOptions';
 
 let photoList, videoList, flkty;
-let flkOptions = {
-  cellAlign: 'center',
-  contain: true,
-  imagesLoaded: true,
-  percentPosition: false,
-  wrapAround: true,
-  autoPlay: 5000,
-  bgLazyLoad: true,
-  bgLazyLoad: 2,
-  pauseAutoPlayOnHover: false
-}
 const photoViewer = document.querySelector('.photoViewer');
 
 const fetchList = resourceType => {
-  const result = fetch(`data/${resourceType}.json`)
+  fetch(`data/${resourceType}.json`)
     .then(res => res.json())
     .then(resString => {
       document.querySelector('.preloader').style.display = "none";
