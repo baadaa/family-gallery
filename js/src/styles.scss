@@ -172,7 +172,7 @@ footer {
   z-index: 12;
 }
 
-.photoViewer {
+.photoViewer, .videoViewer {
   transition: opacity 0.5s ease-in-out;
   z-index: 15;
   position: fixed;
