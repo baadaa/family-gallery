@@ -172,7 +172,7 @@ footer {
   z-index: 12;
 }
 
-.photoViewer, .videoViewer {
+.mediaViewer, .videoViewer {
   transition: opacity 0.5s ease-in-out;
   z-index: 15;
   position: fixed;
@@ -188,7 +188,7 @@ footer {
   justify-content: center;
   align-items: center;
   color:#FFF;
-  .auto-play, .close-photo {
+  .auto-play, .close-photo, .close-video {
     cursor: pointer;
     position: absolute;
     top: 0; 
@@ -205,7 +205,7 @@ footer {
     border-radius: 50%;
     opacity: .5;
   }
-  .close-photo {
+  .close-photo, .close-video {
     right: 0;
   }
   .auto-play {
@@ -227,6 +227,12 @@ footer {
       size: cover!important; 
       position: center!important; 
       repeat: no-repeat!important;
+    }
+    video {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+      max-height: 100%;
     }
   }
   .flickity-button {
