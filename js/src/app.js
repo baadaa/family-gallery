@@ -23,7 +23,7 @@ const fetchList = resourceType => {
     .then(res => res.json())
     .then(resString => {
       hidePreloader();
-      flkMethods.createFlktyString(shuffle(Array.from(resString)), resourceType);
+      createFlktyString(shuffle(Array.from(resString)), resourceType);
     })
     .catch(err => console.log(err));
 }
@@ -35,35 +35,48 @@ const assetString = (resourceType, filename) => {
 }
 const isPhoto = resourceType => resourceType === "images";
 const stopAllVid = () => { document.querySelectorAll('video').forEach((vid) => vid.pause()) };
-const flkMethods = {
-  createFlktyString(fileArray, resourceType) {
-    const viewer = isPhoto(resourceType) ? document.querySelector('.photoViewer .main-carousel') : document.querySelector('.videoViewer .main-carousel');
-    viewer.innerHTML = fileArray.map(filename => assetString(resourceType, filename)).join('');
-  },
-  launchFlkty(resourceType) {
-    const viewer = isPhoto(resourceType) ? photoViewer : videoViewer;
-    const carousel = viewer.querySelector('.main-carousel');
-    viewer.style.display = "flex";
-    setTimeout(() => { viewer.style.opacity = 1 }, 0);
-    setTimeout(() => { toggleFullscreen("on") }, 500);
-    const flkty = new Flickity(carousel, imgOptions);
-    flkty.resize();
-  },
-  hideViewer(e) {
-    const isPhoto = e.target.parentNode.className === "photoViewer";
-    const viewer = (isPhoto) ? photoViewer : videoViewer;
-    if (!isPhoto) { stopAllVid() };
-    viewer.style.opacity = 0;
-    setTimeout(() => {
-      viewer.style.display = "none";
-      toggleFullscreen("off");
-    }, 500);
-  },
-  unpauseFlkty() {
-    flkty.playPlayer();
-  }
+const createFlktyString = (fileArray, resourceType) => {
+  const viewer = isPhoto(resourceType) ? document.querySelector('.photoViewer .main-carousel') : document.querySelector('.videoViewer .main-carousel');
+  viewer.innerHTML = fileArray.map(filename => assetString(resourceType, filename)).join('');
+}
+const flktyVideoInit = flktyElem => {
+  flktyElem.selectedElement.querySelector('video').play();
+  flktyElem.on('settle', () => {
+    flktyElem.cells.forEach(cell => {
+      const video = cell.element.querySelector('video');
+      if (cell.element === flktyElem.selectedElement) {
+        video.play();
+      } else {
+        video.pause();
+      }
+    })
+  })
 };
-
+const launchFlkty = resourceType => {
+  const viewer = isPhoto(resourceType) ? photoViewer : videoViewer;
+  const carousel = viewer.querySelector('.main-carousel');
+  viewer.style.display = "flex";
+  setTimeout(() => { viewer.style.opacity = 1 }, 0);
+  setTimeout(() => { toggleFullscreen("on") }, 500);
+  const flkty = new Flickity(carousel, imgOptions);
+  flkty.resize();
+  if (!isPhoto(resourceType)) {
+    flktyVideoInit(flkty);
+  }
+}
+const hideViewer = e => {
+  const isPhoto = e.target.parentNode.className === "photoViewer";
+  const viewer = (isPhoto) ? photoViewer : videoViewer;
+  if (!isPhoto) { stopAllVid() };
+  viewer.style.opacity = 0;
+  setTimeout(() => {
+    viewer.style.display = "none";
+    toggleFullscreen("off");
+  }, 500);
+}
+const unpauseFlkty= () => {
+  flkty.playPlayer();
+}
 
 
 // 4. Init
@@ -73,16 +86,16 @@ window.onload = () => {
   fetchList("videos");
   const clicked = e => {
     if (e.target.className == 'selection photos') {
-      flkMethods.launchFlkty("images");
+      launchFlkty("images");
     } else {
-      flkMethods.launchFlkty("videos");
+      launchFlkty("videos");
       
     }
   }
 
   document.querySelector('.selection.photos').addEventListener('click', clicked);
   document.querySelector('.selection.videos').addEventListener('click', clicked);
-  document.querySelector('.close-photo').addEventListener('click', flkMethods.hideViewer);
-  document.querySelector('.close-video').addEventListener('click', flkMethods.hideViewer);
-  document.querySelector('.auto-play').addEventListener('click', flkMethods.unpauseFlkty);
+  document.querySelector('.close-photo').addEventListener('click', hideViewer);
+  document.querySelector('.close-video').addEventListener('click', hideViewer);
+  document.querySelector('.auto-play').addEventListener('click', unpauseFlkty);
 }
