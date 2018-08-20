@@ -1,4 +1,4 @@
-let flkOptions = {
+const imgOptions = {
   cellAlign: 'center',
   contain: true,
   imagesLoaded: true,
@@ -9,5 +9,14 @@ let flkOptions = {
   bgLazyLoad: 2,
   pauseAutoPlayOnHover: false
 }
+const vidOptions = {
+  cellAlign: 'center',
+  contain: true,
+  imagesLoaded: true,
+  percentPosition: false,
+  wrapAround: true,
+  autoPlay: false,
+  pauseAutoPlayOnHover: false
+}
 
-export { flkOptions };
+export { imgOptions, vidOptions };
