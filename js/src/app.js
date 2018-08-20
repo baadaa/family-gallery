@@ -64,6 +64,7 @@ const flkMethods = {
   },
   hideVideoViewer() {
     videoViewer.style.opacity = 0;
+    document.querySelectorAll('video').forEach((vid) => vid.pause());
     setTimeout(() => {
       videoViewer.style.display = "none";
       toggleFullscreen("off");
