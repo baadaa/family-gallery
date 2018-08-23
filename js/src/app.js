@@ -55,10 +55,11 @@ const flktyVideoInit = flktyElem => {
 const launchFlkty = resourceType => {
   const viewer = isPhoto(resourceType) ? photoViewer : videoViewer;
   const carousel = viewer.querySelector('.main-carousel');
+  const loadOption = isPhoto(resourceType) ? imgOptions : vidOptions;
   viewer.style.display = "flex";
   setTimeout(() => { viewer.style.opacity = 1 }, 0);
   setTimeout(() => { toggleFullscreen("on") }, 500);
-  const flkty = new Flickity(carousel, imgOptions);
+  const flkty = new Flickity(carousel, loadOption);
   flkty.resize();
   if (!isPhoto(resourceType)) {
     flktyVideoInit(flkty);
@@ -89,7 +90,6 @@ window.onload = () => {
       launchFlkty("images");
     } else {
       launchFlkty("videos");
-      
     }
   }
 
