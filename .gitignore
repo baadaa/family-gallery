@@ -1,4 +1,4 @@
 .DS_Store
 .DS_Store?
-server-load/
+server-load/api-creds.js
 node_modules/
